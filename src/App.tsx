@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, Link, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch } from 'react-router-dom';
 import Index from './views/index';
 import About from './views/about';
 
@@ -11,10 +11,14 @@ function App() {
       <nav className="nav-bar">
         <ul className="nav-bar-list">
           <li className="nav-bar-item">
-            <NavLink to="/index" activeClassName="selected">Index</NavLink>
+            <NavLink exact to="/" activeClassName="selected">
+              Index
+            </NavLink>
           </li>
           <li className="nav-bar-item">
-            <NavLink to="/about" activeClassName="selected">About</NavLink>
+            <NavLink to="/about" activeClassName="selected">
+              About
+            </NavLink>
           </li>
         </ul>
       </nav>
@@ -22,7 +26,7 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/index">
+        <Route path="/">
           <Index />
         </Route>
       </Switch>
