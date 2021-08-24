@@ -126,7 +126,10 @@ module.exports = {
     // getter 必须有返回值，并且禁止返回空，比如 return;
     'getter-return': ['error', { allowImplicit: false }],
 
-    complexity: ['error', 100]
+    complexity: ['error', 100],
+
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'off'
 
     //* *** 代码末尾不需要分号, 可不做强制要求
     // 'semi': [2, 'never'],

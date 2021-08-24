@@ -1,13 +1,31 @@
 import React from 'react';
+import { Route, NavLink, Link, Switch } from 'react-router-dom';
 import Index from './views/index';
 import About from './views/about';
 
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <Index />
+      <nav className="nav-bar">
+        <ul className="nav-bar-list">
+          <li className="nav-bar-item">
+            <NavLink to="/index" activeClassName="selected">Index</NavLink>
+          </li>
+          <li className="nav-bar-item">
+            <NavLink to="/about" activeClassName="selected">About</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/index">
+          <Index />
+        </Route>
+      </Switch>
     </div>
   );
 }
