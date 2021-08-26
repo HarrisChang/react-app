@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint/eslint-plugin'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'react-hooks'],
   extends: ['alloy', 'alloy/react', 'alloy/typescript'],
   env: {
     browser: true,
@@ -129,7 +129,10 @@ module.exports = {
     complexity: ['error', 100],
 
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-member-accessibility': 'off'
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    '@typescript-eslint/no-empty-interface': 'off',
+    "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
+    "react-hooks/exhaustive-deps": "warn" // 检查 effect 的依赖
 
     //* *** 代码末尾不需要分号, 可不做强制要求
     // 'semi': [2, 'never'],
