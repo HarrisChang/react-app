@@ -36,30 +36,12 @@ class Family extends Component {
   componentDidMount() {
     console.log('FAMILY-CONTEXT:', this.context);
   }
-  componentDidUpdate() {
-    console.log('FAMILY-CONTEXT:', this.context);
-  }
   render() {
     return (
       <div className="context-family-wrap">
         <h2>Family</h2>
         Family 级别的参数为：name-{this.context.name}, age-{this.context.age}
         <Parent />
-      </div>
-    );
-  }
-}
-
-class Other extends Component {
-  static contextType = FamilyContext;
-  componentDidMount() {
-    console.log('OTHER-CONTEXT:', this.context);
-  }
-  render() {
-    return (
-      <div className="context-other-wrap">
-        <h2>Other</h2>
-        Ohter 级别的参数为：name-{this.context.name}, age-{this.context.age}
       </div>
     );
   }
@@ -72,24 +54,14 @@ export default class Context extends Component {
       age: 20
     }
   };
-  changeContext = () => {
-    this.setState({
-      contextObj: {
-        name: 'newContext',
-        age: 100
-      }
-    });
-  };
   render() {
     return (
       <div className="context-wrap">
         <h1>Context</h1>
         Context 级别的参数为：name-{this.state.contextObj.name}, age-{this.state.contextObj.age}
-        <button onClick={this.changeContext}>Click Me</button>
         <FamilyContext.Provider value={this.state.contextObj}>
           <Family />
         </FamilyContext.Provider>
-        <Other />
       </div>
     );
   }

@@ -74,3 +74,48 @@ class Parent extends Component {
   }
 }
 ```
+
+### 3. defaultValue 默认值
+
+**只有** 当组件所处的树中没有匹配到 Provider 时，其 defaultValue 参数才会生效。注意：将 `undefined` 传递给 Provider 的 value 时，消费组件的 defaultValue 不会生效。
+
+```js
+class Other extends Component {
+  static contextType = FamilyContext;
+  componentDidMount() {
+    console.log('OTHER-CONTEXT:', this.context);
+  }
+  render() {
+    return (
+      <div className="context-other-wrap">
+        <h2>Other</h2>
+      </div>
+    );
+  }
+}
+
+export default class Context extends Component {
+  state = {
+    contextObj: {
+      name: 'MyContext',
+      age: 20
+    }
+  };
+  render() {
+    return (
+      <div className="context-wrap">
+        <h1>Context</h1>
+        Context 级别的参数为：name-{this.state.contextObj.name}, age-{this.state.contextObj.age}
+        <FamilyContext.Provider value={this.state.contextObj}>
+          <Family />
+        </FamilyContext.Provider>
+        <Other />
+      </div>
+    );
+  }
+}
+```
+
+Other Component 未被 Provider 包裹，打印出来的 context 为 defaultValue。
+
+
