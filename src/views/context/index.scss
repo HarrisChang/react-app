@@ -1,0 +1,12 @@
+.context-family-wrap {
+  padding: 10px;
+  border: 1px solid red;
+  .context-parent-wrap {
+    padding: 10px;
+    border: 1px solid yellow;
+  }
+  .context-son-wrap {
+    padding: 10;
+    border: 1px solid blue;
+  }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import Index from './views/index';
-import About from './views/about';
+import Context from './views/context';
 
 import './App.scss';
 
@@ -16,15 +16,15 @@ function App() {
             </NavLink>
           </li>
           <li className="nav-bar-item">
-            <NavLink to="/about" activeClassName="selected">
-              About
+            <NavLink to="/context" activeClassName="selected">
+              Context
             </NavLink>
           </li>
         </ul>
       </nav>
       <Switch>
-        <Route path="/about">
-          <About />
+        <Route path="/context">
+          <Context />
         </Route>
         <Route path="/">
           <Index />
